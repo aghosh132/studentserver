@@ -108,9 +108,43 @@ app.post("/register",(req,res)=>{
 
 
 
+app.post("/viewstatus",(req,res)=>{
+  ds.view(req.body.studenti).then(result=>{
+    res.status(result.statusCode).json(result)
+  })
+})
+
+app.post("/accept",(req,res)=>{
+  ds.accept(req.body.studenti).then(result=>{
+    res.status(result.statusCode).json(result)
+  })
+})
 
 
 
+
+
+
+
+app.post("/registe",(req,res)=>{
+
+  ds.registe(req.body.Date,req.body.studenti,req.body.Depname,req.body.Reason).then(result=>{
+   res.status(result.statusCode).json(result)})})
+
+
+   app.get("/reci",(req,res)=>{
+
+    ds.reci().then(result=>{
+   res.status(result.statusCode).json(result)})})
+
+   app.delete("/delete/:studenti",jwtMiddleware,(req,res)=>{
+
+    ds.deleteAcc(req.params.studenti).then(result=>{
+      res.status(res.statusCode).json(result)
+    })
+    
+    
+      })
 
 
 app.listen(3000,()=>{

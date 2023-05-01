@@ -17,16 +17,17 @@ transactions:[]
 
  }
  )
- const Subin = mongoose.model("Subin",
+ const Suber = mongoose.model("Suber",
  {
 Date:String,
-studentid:Number,
+studenti:Number,
 Depname:String,
-Reason:String
+Reason:String,
+accepted:String
 
  }
  )
 
  module.exports={
-    User,Subin
+    User,Suber
  }
